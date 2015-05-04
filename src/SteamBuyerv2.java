@@ -29,11 +29,11 @@ public class SteamBuyerv2 {
 		String priceString;
 		String itemname;
 		
-		List<Item> items = Lists.newArrayList();
-		
 		Item tec9 =  new Item("https://steamcommunity.com/market/listings/730/StatTrak%E2%84%A2%20Tec-9%20%7C%20Isaac%20%28Field-Tested%29", 1.00, 1);
+		Item tec10 =  new Item("https://steamcommunity.com/market/listings/730/StatTrak%E2%84%A2%20Tec-9%20%7C%20Isaac%20%28Field-Tested%29", 1.00, 1);
 		
-		items.add(tec9);
+		List<Item> items  = Lists.newArrayList(tec9, tec10);
+		
 		
 //		String[] pageURL = {"https://steamcommunity.com/market/listings/730/M4A1-S%20%7C%20Dark%20Water%20%28Minimal%20Wear%29",
 //							"https://steamcommunity.com/market/listings/730/StatTrak%E2%84%A2%20USP-S%20%7C%20Guardian%20%28Field-Tested%29",
