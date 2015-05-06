@@ -13,7 +13,7 @@ import org.openqa.selenium.firefox.internal.ProfilesIni;
 
 import com.google.common.collect.Lists;
 
-public class SteamBuyerv2 {
+public class SteamBuyerItem1 {
 
 	@Test
 	public void steamBuyerTest() throws Exception {
@@ -29,9 +29,7 @@ public class SteamBuyerv2 {
 		String itemname;
 
 		List<Item> items = Lists.newArrayList();
-		items.add(new Item("https://steamcommunity.com/market/listings/730/M4A1-S%20%7C%20Dark%20Water%20%28Minimal%20Wear%29", 2.5, 1));
-		items.add(new Item("https://steamcommunity.com/market/listings/730/StatTrak%E2%84%A2%20Tec-9%20%7C%20Isaac%20%28Field-Tested%29", 0.85, 1));
-		items.add(new Item("https://steamcommunity.com/market/listings/730/StatTrak%E2%84%A2%20USP-S%20%7C%20Guardian%20%28Field-Tested%29", 2.00, 1));
+		items.add(new Item("http://steamcommunity.com/market/listings/730/USP-S%20|%20Blood%20Tiger%20%28Factory%20New%29", 0.35, 1));
 
 		boolean flag = true;
 		int listpos = 0;
@@ -42,8 +40,8 @@ public class SteamBuyerv2 {
 		SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
 
 		driver.get("https://steamcommunity.com/login/");
-		driver.findElement(By.id("steamAccountName")).sendKeys("mendion82");
-		driver.findElement(By.id("steamPassword")).sendKeys("paranoia290");
+		driver.findElement(By.id("steamAccountName")).sendKeys("weezer1988");
+		driver.findElement(By.id("steamPassword")).sendKeys("re3nsegmeg");
 		driver.findElement(By.id("SteamLogin")).click();
 
 		Thread.sleep(5000);
