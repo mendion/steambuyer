@@ -1,8 +1,11 @@
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized.Parameters;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -13,12 +16,36 @@ import org.openqa.selenium.firefox.internal.ProfilesIni;
 
 import com.google.common.collect.Lists;
 
-public class SteamBuyerItem2 {
+@RunWith(Parallelized.class)
+public class FeatureTest {
+    // This is the parameter for each instance of the test.
+    private List<Item> items;
 
-	@Test
-	public void steamBuyerTest() throws Exception {
+    public FeatureTest(List<Item> items)
+    {
+         this.items = items;
+    }
 
-		ProfilesIni profile = new ProfilesIni();
+    @Parameters
+    public static List<Object> getParameters()     
+    {         
+        List<Item> items1 = new ArrayList<Item>();
+        items1.add(new Item("http://steamcommunity.com/market/listings/730/USP-S%20|%20Guardian%20%28Minimal%20Wear%29", 0.1, 10));
+        items1.add(new Item("http://steamcommunity.com/market/listings/730/AK-47%20|%20Redline%20%28Field-Tested%29", 0.1, 10));
+        
+        List<Item> items2 = new ArrayList<Item>();
+        items2.add(new Item("http://steamcommunity.com/market/listings/730/AK-47%20|%20Elite%20Build%20%28Minimal%20Wear%29", 0.1, 10));
+        items2.add(new Item("http://steamcommunity.com/market/listings/730/AWP%20|%20Asiimov%20%28Battle-Scarred%29", 0.1, 10));
+        
+        List<Object> parameters = new ArrayList<Object>();
+        parameters.add(new Object[] { items1 });
+        parameters.add(new Object[] { items2 });
+        return parameters;
+    }
+ 
+    @Test
+    public void testOneFeature() throws InterruptedException {
+    	ProfilesIni profile = new ProfilesIni();
 		FirefoxProfile ffprofile = profile.getProfile("default");
 		WebDriver driver = new FirefoxDriver(ffprofile);
 
@@ -27,9 +54,6 @@ public class SteamBuyerItem2 {
 
 		String priceString;
 		String itemname;
-
-		List<Item> items = Lists.newArrayList();
-		items.add(new Item("http://steamcommunity.com/market/listings/730/USP-S%20|%20Guardian%20%28Minimal%20Wear%29", 0.76, 1));
 
 		boolean flag = true;
 		int listpos = 0;
@@ -41,7 +65,7 @@ public class SteamBuyerItem2 {
 
 		driver.get("https://steamcommunity.com/login/");
 		driver.findElement(By.id("steamAccountName")).sendKeys("weezer1988");
-		driver.findElement(By.id("steamPassword")).sendKeys("re3nsegmeg");
+		driver.findElement(By.id("steamPassword")).sendKeys("esta");
 		driver.findElement(By.id("SteamLogin")).click();
 
 		Thread.sleep(5000);
@@ -111,6 +135,5 @@ public class SteamBuyerItem2 {
 
 		}
 
-	}
-
-}
+    }
+} 

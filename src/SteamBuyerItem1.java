@@ -29,7 +29,7 @@ public class SteamBuyerItem1 {
 		String itemname;
 
 		List<Item> items = Lists.newArrayList();
-		items.add(new Item("http://steamcommunity.com/market/listings/730/USP-S%20|%20Blood%20Tiger%20%28Factory%20New%29", 0.35, 1));
+		items.add(new Item("http://steamcommunity.com/market/listings/730/USP-S%20|%20Guardian%20%28Minimal%20Wear%29", 0.76, 1));
 
 		boolean flag = true;
 		int listpos = 0;
